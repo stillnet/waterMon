@@ -1,0 +1,17 @@
+{
+  "name": "showerwatcher",
+  "version": "0.0.1",
+  "description": "Listens for notify messages from postgres when showers are complete",
+  "main": "showerWatcher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "config": "^3.3.3",
+    "pg": "^8.5.1",
+    "pg-listen": "^1.7.0"
+  }
+}

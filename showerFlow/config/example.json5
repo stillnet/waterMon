@@ -1,0 +1,15 @@
+{
+  locationid: '1',     
+  inputPin: '25',     
+  debuglogging: true,  // logs extra data to stdout
+  postgresConfiguration: {
+    user: '',
+    host: '',
+    database: '',
+    password: '',
+    port: 5432,
+    ssl: {rejectUnauthorized: false},
+    connectionTimeoutMillis: 5000,
+    query_timeout: 3000
+  }
+}
