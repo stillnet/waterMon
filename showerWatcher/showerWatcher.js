@@ -51,7 +51,7 @@ function handleShowerComplete(msg) {
   if (debuglogging) console.log(new Date().toLocaleString() + ` Shower ${msg.showerid} length was ${length_seconds}`)
 
   // if we have a sendgrid api key, send an email
-  if (length_seconds > 300 && config.has('sendgrid_api_key')) {
+  if (length_seconds > 100 && config.has('sendgrid_api_key')) {
     if (debuglogging) console.log(new Date().toLocaleString() + ' Will send email')
     sgMail.setApiKey(config.get('sendgrid_api_key'))
      const emailMessage = {
