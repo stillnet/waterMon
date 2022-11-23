@@ -3,6 +3,8 @@ const led = new Gpio(17, 'out');
 const { Pool } = require('pg')
 const fs = require('fs')
 
+console.log(new Date().toLocaleString() + ' ' + 'showerFlow.js script started.')
+
 if (! fs.existsSync('./config/default.json5')) {
     console.error('config/default.json5 must exist. Look at config/example.json5')
     process.exit()
@@ -56,7 +58,7 @@ function connectToDB(retryOnFailure = true) {
 	    }
 	    else {
 	        console.error(`Error connecting to Postgres! ${e}. Will exit. `)
-		    process.exit()}
+		    process.exit(1)}
 	    })
     })()
 }
@@ -128,7 +130,7 @@ async function startShower(dataset) {
     })
     .catch( (error) => {
         console.log(`Error during SQL execution, will exit. Error: ${error}`)
-        process.exit()
+        process.exit(1)
     })
 }
 
@@ -144,7 +146,7 @@ async function updateShower(showerid) {
     })
     .catch( (error) => {
         console.log(`Error during SQL update, will exit. Error: ${error}`)
-        process.exit()
+        process.exit(1)
     })
 }
 
@@ -162,7 +164,7 @@ async function endShower(showerid) {
     })
     .catch( (error) => {
         console.log(`Error during SQL update, will exit. Error: ${error}`)
-        process.exit()
+        process.exit(1)
     })
   global.showerid = 0
 }
