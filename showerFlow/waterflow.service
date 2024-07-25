@@ -1,6 +1,6 @@
 [Unit]
 Description=waterFlow monitor script
-After=multi-user.target
+After=network.target
 #StartLimitIntervalSec=35
 #StartLimitBurst=
 [Service]
@@ -8,8 +8,8 @@ ExecStart=node /home/pi/src/waterFlow/waterFlow.js
 WorkingDirectory=/home/pi/src/waterFlow
 Restart=on-failure
 RestartSec=60
-User=[Your User]
-StandardOutput=append:/var/log/waterFlow.log
-StandardError=append:/var/log/waterFlow.log
+User=root
+StandardOutput=file:/var/log/waterFlow.log
+StandardError=file:/var/log/waterFlow.log
 [Install]
 WantedBy=multi-user.target
